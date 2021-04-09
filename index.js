@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@lfc-dufxi.mongodb.net/${process.env.MONGO_DB_DBNAME}?retryWrites=true&w=majority`
 mongoose.connect(uri, { useNewUrlParser: true,useUnifiedTopology: true},()=>{
     console.log('connected to mongodb')
-    server.listen(process.env.PORT || 4000, () => {
+    server.listen(4000, () => {
         console.log('listening on 4000')
     })
 });

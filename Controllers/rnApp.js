@@ -48,7 +48,7 @@ exports.postRegister = (req, res) => {
                         });
                         user.save()
                         return res.status(200).json({
-                            message: "success"
+                            success: true,
                         })
                     })
             }
@@ -56,7 +56,7 @@ exports.postRegister = (req, res) => {
         .catch(err => {
             console.log(err)
             return res.status(500).json({
-                message: 'Une erreur s\'est produite'
+                message: 'Une erreur s\'est produite veuillez réessayer plus tard'
             })
         });
 }
