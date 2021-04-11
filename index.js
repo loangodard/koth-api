@@ -3,15 +3,6 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 const app = express()
 
-//TODO : delete it in production
-app.use(function(req, res, next) { //allow cross origin requests;
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-    res.header("Access-Control-Max-Age", "3600");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    next();
-});
-
 const http = require('http')
 const server = http.createServer(app);
 
@@ -38,7 +29,15 @@ app.use(bodyParser.json());
 /**
  * MongoDB Connection
  */
-const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@lfc-dufxi.mongodb.net/${process.env.MONGO_DB_DBNAME}?retryWrites=true&w=majority`
+let uri
+if(process.env.DEV == "True"){
+    uri = `mongodb+srv://${process.env.MONGO_DB_USER_DEV}:${process.env.MONGO_DB_PASSWORD_DEV}@cluster0.b1kbx.mongodb.net/${process.env.MONGO_DB_DBNAME}?retryWrites=true&w=majority`
+}else{
+    uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@lfc-dufxi.mongodb.net/${process.env.MONGO_DB_DBNAME}?retryWrites=true&w=majority`
+}
+
+console.log(uri)
+
 mongoose.connect(uri, { useNewUrlParser: true,useUnifiedTopology: true},()=>{
     console.log('connected to mongodb')
     server.listen(process.env.PORT || 4000, () => {

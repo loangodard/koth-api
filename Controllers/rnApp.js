@@ -19,6 +19,8 @@ exports.postRegister = (req, res) => {
     const tel = req.body.tel
     const password = req.body.password;
 
+    console.log(req.body)
+
     User.findOne({
             $or: [{
                 pseudo: /pseudo/i
@@ -186,8 +188,9 @@ exports.postReport = (req, res) => {
 }
 
 exports.postCreateZone = (req, res) => {
-    const nom = "Troyes"
-    const border = [{latitude:48.32762873893757, longitude: 4.065952907069104},{latitude:48.328998311036166, longitude: 4.032307277186291},{latitude:48.32009543493688, longitude: 4.023724208338635},{latitude:48.307537455703844, longitude: 4.021320949061291},{latitude:48.290636388544215, longitude: 4.034367213709729},{latitude:48.28218375664806, longitude: 4.040547023280041},{latitude:48.26641700339144, longitude: 4.056683192713635},{latitude:48.26504575143811, longitude: 4.07453597591676},{latitude:48.25933180562814, longitude: 4.09650863216676},{latitude:48.26138889970039, longitude: 4.11573470638551},{latitude:48.27670022038468, longitude: 4.123631129725354},{latitude:48.28378301051799, longitude: 4.133587489588635},{latitude:48.293149063395155, longitude: 4.139423976405041},{latitude:48.30959260926163, longitude: 4.133244166834729},{latitude:48.3212369161531, longitude: 4.121914515955822},{latitude:48.33310680665046, longitude: 4.108181605799572},{latitude:48.335389161181205, longitude: 4.10440505550660},]
+    console.log('creating a new zone')
+    const nom = "Yonne Nord Dev"
+    const border = [{"latitude":48.31208197039403,"longitude":3.2155864821248636},{"latitude":48.28467445454998,"longitude":3.1139629469686136},{"latitude":48.26822288204785,"longitude":3.0919902907186136},{"latitude":48.20602468426505,"longitude":3.0425518141561136},{"latitude":48.148332395410456,"longitude":3.0315654860311136},{"latitude":48.121753806105446,"longitude":3.0549114332967386},{"latitude":48.07222597551605,"longitude":3.1647747145467386},{"latitude":48.04744416753152,"longitude":3.2966106520467386},{"latitude":48.05845977717981,"longitude":3.3625286207967386},{"latitude":48.09057517951562,"longitude":3.4408062086873636},{"latitude":48.13000380617441,"longitude":3.4531658278279886},{"latitude":48.19504068190343,"longitude":3.4765117750936136},{"latitude":48.241706427543676,"longitude":3.4586589918904886},{"latitude":48.2801051046818,"longitude":3.4257000075154886},{"latitude":48.310255260432,"longitude":3.3693950758748636},{"latitude":48.322127706319144,"longitude":3.313090144234238}]
 
 
     const zone = new Zone({
