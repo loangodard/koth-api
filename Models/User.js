@@ -16,7 +16,10 @@ const userSchema = new Schema({
         type: [{date:Date,elos:Number,zone:String}],
         default: [{date: new Date(),elos : 1000}],
         zone:{type:String,ref:'Zone'}
-    }
+    },
+    filleuls:[{user:{type:String,ref:'User',_id: false}}],
+    matchs:[{match:{type:String,ref:'Match'}}],
+    parrain:{type:String,ref:'User'}
 });
 
 

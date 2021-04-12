@@ -15,6 +15,7 @@ router.get('/game-markers',rnAppControllers.getGameMarkers)
 router.get('/is-in-game/:id',rnAppControllers.getIsInGame)
 
 router.post('/register',rnAppControllers.postRegister)
+router.post('/register-parrainage',rnAppControllers.postRegisterParrainage)
 router.post('/login',rnAppControllers.postLogin)
 router.post('/report',rnAppControllers.postReport)
 

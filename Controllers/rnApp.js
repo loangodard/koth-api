@@ -115,6 +115,65 @@ exports.postLogin = (req, res) => {
         });
 }
 
+exports.postRegisterParrainage = (req, res) => {
+    const pseudo = req.body.pseudo
+    const tel = req.body.tel
+    const password = req.body.password;
+
+    console.log(req.body)
+
+    User.findOne({
+            $or: [{
+                pseudo: /pseudo/i
+            }, {
+                tel: tel
+            }]
+        })
+        .then(userDoc => {
+            if (userDoc) {
+                if (userDoc.pseudo.toLowerCase() == pseudo.toLowerCase()) {
+                    return res.status(500).json({
+                        message: "Ce Pseudo est déjà utilisé"
+                    })
+                } else {
+                    return res.status(500).json({
+                        message: "Ce numéro de téléphone est déjà utilisé"
+                    })
+                }
+            } else {
+                return bcrypt
+                    .hash(password, 12)
+                    .then(hashedPassword => {
+                        const user = new User({
+                            pseudo: pseudo,
+                            tel: tel,
+                            password: hashedPassword,
+                            parrain:req.body.parrain
+                        });
+                        user.save()
+
+                        User.findById(req.body.parrain).then(parrain => {
+                            if(parrain){
+                                parrain.filleuls.push(
+                                    {user:user._id}
+                                )
+                                parrain.save()
+                            }
+                            return res.status(200).json({
+                                success: true,
+                            })
+                        })
+                    })
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            return res.status(500).json({
+                message: 'Une erreur s\'est produite veuillez réessayer plus tard'
+            })
+        });
+}
+
 exports.getUser = (req, res) => {
     User.findById(req.params.id).then(user => {
         if (!user) {
