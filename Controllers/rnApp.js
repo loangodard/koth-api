@@ -365,3 +365,23 @@ exports.getIsInGame = (req,res) => {
         return res.status(200).json(matchs)
     })
 }
+
+exports.getFilleuls = async (req,res) => {
+    const userId = req.params.id
+    User.findById(userId).then(async user => {
+        var nbFilleulPlayed = 0
+        for(filleul of user.filleuls){
+            console.log(filleul)
+            const filleul_ = await User.findById(filleul.user)
+            if(filleul_.elos_historique.length > 1){
+                nbFilleulPlayed++
+            }
+        }
+        return res.status(200).json({nombre:nbFilleulPlayed})
+    }).catch(err=>{
+        console.log(err)
+        return res.status(500).json({
+            err:err
+        })
+    })
+}

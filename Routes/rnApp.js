@@ -13,6 +13,7 @@ router.get('/classement/:zoneId',rnAppControllers.getClassement)
 router.get('/coins/:userId',rnAppControllers.getCoins)
 router.get('/game-markers',rnAppControllers.getGameMarkers)
 router.get('/is-in-game/:id',rnAppControllers.getIsInGame)
+router.get('/filleuls/:id',rnAppControllers.getFilleuls)
 
 router.post('/register',rnAppControllers.postRegister)
 router.post('/register-parrainage',rnAppControllers.postRegisterParrainage)

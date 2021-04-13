@@ -5,7 +5,11 @@ const PhysicalItemSchema = new Schema({
     nom: String,
     description: String,
     imageURL: String,
-    moneyCost: Number
+    moneyCost: Number,
+    enable:Boolean, //Activé ou non,
+    tailles:[{String}],
+    parametres:[{nom_param:String,valeur:String,_id:false}],
+    stock:Number
 });
 
 
