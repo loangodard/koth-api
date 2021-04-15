@@ -38,11 +38,11 @@ exports.manageSockets = (io) => {
                     const userEloInZoneIndex = user.elos.findIndex(e => e.zone == zone._id);
                     let userEloInZone
                     if(userEloInZoneIndex < 0){
-                        // user.elos.push({
-                        //     zone:zone._id,
-                        //     elo:1000
-                        // })
-                        // user.save()
+                        user.elos.push({
+                            zone:zone._id,
+                            elo:1000
+                        })
+                        user.save()
                         userEloInZone = 1000
                     }else{
                         userEloInZone = user.elos[userEloInZoneIndex].elo
