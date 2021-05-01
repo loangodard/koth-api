@@ -185,7 +185,7 @@ exports.getUser = (req, res) => {
             user: {
                 _id: user._id,
                 elos: user.elos,
-                pseudo: user.pseudo
+                pseudo: user.pseudo,
             }
         })
     }).catch(err => {
@@ -383,5 +383,33 @@ exports.getFilleuls = async (req,res) => {
         return res.status(500).json({
             err:err
         })
+    })
+}
+
+exports.postAvatar = (req,res,next) => {
+    const userId = req.body.userId
+    User.findById(userId).then(user=>{
+        user.avatar= req.body.avatar
+        user.save().then(r => {
+            return res.status(200).json({
+                success:true
+            })
+        })
+    }).catch(err => {
+        console.log(err)
+        return res.status(500).json({
+            err:err
+        })  
+    })
+}
+
+exports.getAvatar = (req,res,next) => {
+    const userId = req.params.userId
+    User.findById(userId).then(user=>{
+        if(user){
+            return res.status(200).json({
+                avatar:user.avatar
+            })
+        }
     })
 }

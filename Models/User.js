@@ -19,7 +19,23 @@ const userSchema = new Schema({
     },
     filleuls:[{user:{type:String,ref:'User',_id: false}}],
     matchs:[{match:{type:String,ref:'Match'}}],
-    parrain:{type:String,ref:'User'}
+    parrain:{type:String,ref:'User'},
+    avatar:{
+        accessory:String,
+        bgColor:String,
+        body:String,
+        clothing:String,
+        clothingColor:String,
+        eyeBrows:String,
+        eyes:String,
+        facialHair:String,
+        hair:String,
+        hairColor:String,
+        hat:String,
+        hatColor:String,
+        mouth:String,
+        skinTone:String
+    }
 });
 
 

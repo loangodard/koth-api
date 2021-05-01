@@ -14,11 +14,13 @@ router.get('/coins/:userId',rnAppControllers.getCoins)
 router.get('/game-markers',rnAppControllers.getGameMarkers)
 router.get('/is-in-game/:id',rnAppControllers.getIsInGame)
 router.get('/filleuls/:id',rnAppControllers.getFilleuls)
+router.get('/avatar/:userId',rnAppControllers.getAvatar)
 
 router.post('/register',rnAppControllers.postRegister)
 router.post('/register-parrainage',rnAppControllers.postRegisterParrainage)
 router.post('/login',rnAppControllers.postLogin)
 router.post('/report',rnAppControllers.postReport)
+router.post('/avatar',rnAppControllers.postAvatar)
 
 router.post('/create-zone',rnAppControllers.postCreateZone)
 
