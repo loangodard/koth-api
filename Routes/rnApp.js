@@ -22,7 +22,7 @@ router.post('/login',rnAppControllers.postLogin)
 router.post('/report',rnAppControllers.postReport)
 router.post('/avatar',rnAppControllers.postAvatar)
 
-router.post('/create-zone',rnAppControllers.postCreateZone)
+router.get('/create-zone',rnAppControllers.postCreateZone)
 
 
 

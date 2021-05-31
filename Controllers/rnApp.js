@@ -248,8 +248,8 @@ exports.postReport = (req, res) => {
 
 exports.postCreateZone = (req, res) => {
     console.log('creating a new zone')
-    const nom = "Yonne Nord Dev"
-    const border = [{"latitude":48.31208197039403,"longitude":3.2155864821248636},{"latitude":48.28467445454998,"longitude":3.1139629469686136},{"latitude":48.26822288204785,"longitude":3.0919902907186136},{"latitude":48.20602468426505,"longitude":3.0425518141561136},{"latitude":48.148332395410456,"longitude":3.0315654860311136},{"latitude":48.121753806105446,"longitude":3.0549114332967386},{"latitude":48.07222597551605,"longitude":3.1647747145467386},{"latitude":48.04744416753152,"longitude":3.2966106520467386},{"latitude":48.05845977717981,"longitude":3.3625286207967386},{"latitude":48.09057517951562,"longitude":3.4408062086873636},{"latitude":48.13000380617441,"longitude":3.4531658278279886},{"latitude":48.19504068190343,"longitude":3.4765117750936136},{"latitude":48.241706427543676,"longitude":3.4586589918904886},{"latitude":48.2801051046818,"longitude":3.4257000075154886},{"latitude":48.310255260432,"longitude":3.3693950758748636},{"latitude":48.322127706319144,"longitude":3.313090144234238}]
+    const nom = "Bourgoin-Jallieu"
+    const border = [{latitude:45.80384653665254, longitude: 5.2484882070780525},{latitude:45.709512706076055, longitude: 5.140697592366932},{latitude:45.62809247865523, longitude: 5.069667925206458},{latitude:45.48455759019935, longitude: 5.174343232727123},{latitude:45.48848899230929, longitude: 5.399893541550709},{latitude:45.558770351301845, longitude: 5.578713818183614},{latitude:45.73387219303321, longitude: 5.52637616704262}]
 
 
     const zone = new Zone({
